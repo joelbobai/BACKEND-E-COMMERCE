@@ -11,7 +11,7 @@ const verifyToken = async (req, res, next) => {
 
   try {
     if (!token)
-      return res.status(403).send("Access Denied, Token is required!");
+      return res.status(403).send("Access Denied, Token is required!5");
 
     if (token.startsWith("Bearer ")) {
       token = token.slice(7, token.length).trimLeft();
