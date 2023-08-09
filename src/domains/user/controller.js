@@ -29,7 +29,6 @@ const authenticateUser = async (data) => {
       user: fetchedUser._id,
       email,
       name: fetchedUser.name,
-      profilePicture: fetchedUser.profilePicture,
     };
     const token = await createToken(tokenData);
 
