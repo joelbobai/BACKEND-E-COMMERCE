@@ -80,6 +80,7 @@ router.post("/", async (req, res) => {
       user: {
         _id: authenticatedUser._id,
         name: authenticatedUser.name,
+         token: authenticatedUser.token,
         email: authenticatedUser.email,
       },
     });
