@@ -66,7 +66,7 @@ router.post("/", async (req, res) => {
       {
         path: "/",
         expires: new Date(Date.now() + 1000 * 60 * 55), // Set cookie to expire in 55 minutes
-        httpOnly: true,
+        httpOnly: false,
         sameSite: "lax",
       }
     );
