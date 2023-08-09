@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //middleware
-app.use(cors({ credentials: true, origin: "https://beamish-kangaroo-ce7b77.netlify.app" }));
+app.use(cors({ credentials: true, origin: "https://ui-e-commerce.vercel.app" }));
 
 app.use("/api/v1", routes);
 
