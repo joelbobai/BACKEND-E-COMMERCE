@@ -42,7 +42,7 @@ const sendOTP = async ({ email, subject, message, duration = 1 }) => {
 
     // generate pin
     const generatedOTP = await generateOTP();
-    const currentUrl = `http://localhost:3001/api/v1/email_verification/verify/${email}/${generatedOTP}`;
+    const currentUrl = `https://backend-e-commerce-5peyc2vu2-joelbobai.vercel.app/api/v1/email_verification/verify/${email}/${generatedOTP}`;
 
     // send email
     const mailOptions = {
