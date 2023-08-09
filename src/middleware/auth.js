@@ -5,7 +5,7 @@ const { JWT_SECRET } = process.env;
 const verifyToken = async (req, res, next) => {
   let cookies = req.headers.cookie;
   if (!cookies) {
-    return res.status(403).send("Access Denied, Token is required!");
+    return res.status(403).send("Access Denied, Token is required! ",cookies);
   }
   let token = cookies.split("=")[1];
 
