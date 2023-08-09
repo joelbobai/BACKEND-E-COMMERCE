@@ -29,7 +29,7 @@ const refreshToken = async (req, res, next) => {
       path: "/",
       expires: new Date(Date.now() + 1000 * 60 * 55), // Set cookie to expire in 55 minutes
       httpOnly: true,
-      sameSite: "lax",
+      sameSite: "none",
     });
     req.currenUser = verified.user;
   } catch (err) {
