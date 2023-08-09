@@ -67,7 +67,7 @@ router.post("/", async (req, res) => {
         path: "/",
         expires: new Date(Date.now() + 1000 * 60 * 55), // Set cookie to expire in 55 minutes
         httpOnly: true,
-        sameSite: "none",
+        sameSite: "lax",
       }
     );
     // Check if the 'connect.sid' cookie exists
