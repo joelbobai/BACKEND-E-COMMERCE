@@ -3,15 +3,20 @@ const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = process.env;
 
 const verifyToken = async (req, res, next) => {
-  let cookies = req.headers.cookie;
+ let cookies;
+  if(req.headers.cookie){
+    cookies = req.headers.cookie
+  }else if(req.header("Authorization")){
+    cookies = req.header("Authorization");
+  }
   if (!cookies) {
-    return res.status(403).send("Access Denied, Token is required! ",cookies);
+    return res.status(403).send("Access Denied, Token is required! ");
   }
   let token = cookies.split("=")[1];
 
   try {
     if (!token)
-      return res.status(403).send("Access Denied, Token is required!5");
+      return res.status(403).send("Access Denied, Token is required!");
 
     if (token.startsWith("Bearer ")) {
       token = token.slice(7, token.length).trimLeft();
