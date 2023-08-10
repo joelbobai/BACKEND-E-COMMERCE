@@ -76,12 +76,12 @@ router.post("/", async (req, res) => {
       res.cookie("connect.sid", "", { maxAge: 0 });
     }
     return res.status(200).json({
-      message: `Successfully Logged In ${authenticatedUser.token}`,
+      message: `Successfully Logged In`,
       user: {
         _id: authenticatedUser._id,
         name: authenticatedUser.name,
-         token: authenticatedUser.token,
         email: authenticatedUser.email,
+        token: authenticatedUser.token,
       },
     });
   } catch (error) {
