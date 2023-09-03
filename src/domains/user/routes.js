@@ -99,14 +99,15 @@ router.post("/signup", async (req, res) => {
     const uppercaseRegex = /[A-Z]/;
     // Date
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-    let { name, email, date, password, passwordConfirm } = req.body;
+    let { name, email, date, password, passwordConfirm, secretWord } = req.body;
     name = name.trim();
     email = email.trim();
     date = date.trim();
     password = password.trim();
     passwordConfirm = passwordConfirm.trim();
+    secretWord = secretWord.trim();
 
-    if (!(name && email && password && date && passwordConfirm)) {
+    if (!(name && email && password && date && passwordConfirm && secretWord)) {
       throw Error("Empty input fields!");
     } else if (!/^[a-zA-Z ]*$/.test(name)) {
       throw Error("Invalid name entered");
@@ -129,6 +130,7 @@ router.post("/signup", async (req, res) => {
       const newUser = await createNewUser({
         name,
         email,
+        secretWord,
         date,
         password,
       });
